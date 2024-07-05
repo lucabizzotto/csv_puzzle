@@ -92,7 +92,7 @@ def train(model, batchsize, device, path):
     loader = DataLoader(dataset, batch_size=batchsize)
     # train loop
     LR = 1e-3
-    diffusion = Modules.diffusionModel.DiffusionModel()
+    diffusion = diffusionModel.DiffusionModel()
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
     EPOCH = 1500
 
