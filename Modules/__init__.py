@@ -1,1 +1,1 @@
-from . import  diffusionModel, diffusionCenter
+from . import  diffusionModel, diffusion_center
