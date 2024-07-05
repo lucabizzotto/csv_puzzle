@@ -92,7 +92,7 @@ def train(model, batchsize, device, path):
     loader = DataLoader(dataset, batch_size=batchsize)
     # train loop
     LR = 1e-3
-    diffusion = diffusionModel.DiffusionModel()
+    diffusion = DiffusionModel()
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
     EPOCH = 1500
 
@@ -122,14 +122,7 @@ def load_model(model, model_name):
   model.load_state_dict(torch.load(path, map_location=torch.device(device))['model_state_dict'])
   return model
 
-if __name__ == "__main__":
 
-    dataset = Data_puzzle(csv_file='../../Data/csv/same_centroids_only.tsv', dataset='0',enlarge_factor=1)
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    loader = DataLoader(dataset, batch_size=400)
-    # train loop
-    model = MLP_6L(4,2)
-    train(model, 400, device, "../../Data/csv/same_centroids_only.tsv")
 
 
 
