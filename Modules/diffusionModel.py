@@ -43,7 +43,7 @@ class DiffusionModel:
         # torch.clip(mean + variance, -1, 1)
         return mean + variance, noise.to(device)
 
-    def backward_gnn(self, x, t, predicted_noise):
+    def backward(self, x, t, predicted_noise, i):
         """
         Calls the model to predict the noise in the image and returns
         the denoised image.
@@ -64,7 +64,7 @@ class DiffusionModel:
 
 
         # we passed through all the denoising step we are at time T0
-        if t == 0:
+        if i == 0:
             return mean
         else:
             # noise = torch.randn_like(x)
