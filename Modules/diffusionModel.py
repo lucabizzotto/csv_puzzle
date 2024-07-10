@@ -71,7 +71,8 @@ class DiffusionModel:
             noise = self.get_noise(x)
             variance = torch.sqrt(posterior_variance_t) * noise
             # clip the value between -1 and 1
-            return torch.clip(mean + variance, -1, 1)
+            # torch.clip(mean + variance, -1, 1)
+            return mean + variance
 
 
 
